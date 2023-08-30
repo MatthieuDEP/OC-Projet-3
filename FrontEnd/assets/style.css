@@ -125,6 +125,21 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filters {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-filter {
+	color :#1D6154;
+	background-color: white;
+	border-radius: 20px;
+	border-color: #1D6154;
+	padding: 0.5rem 1rem;
+	margin: 0.5rem;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
