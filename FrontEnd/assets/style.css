@@ -95,6 +95,15 @@ nav li {
 	font-size: 1.2em;
 }
 
+nav li a {
+	text-decoration: none;
+	color: black;
+}
+
+nav li a:hover {
+	color: #B1663C;
+}
+
 li:hover {
 	color: #B1663C;
 }
@@ -129,6 +138,7 @@ li:hover {
 .filters {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 2rem;
 }
 
 .btn-filter {
@@ -138,6 +148,13 @@ li:hover {
 	border-color: #1D6154;
 	padding: 0.5rem 1rem;
 	margin: 0.5rem;
+	font-weight: bold;
+	font-size: 0.9rem;
+}
+
+.btn-filter:focus {
+	background-color: #1D6154;
+	color: white;
 }
 
 .gallery {
