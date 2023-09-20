@@ -1,8 +1,6 @@
 const reponse = await fetch('http://localhost:5678/api/works');
 const works = await reponse.json();
 
-console.log(works);
-
 function genererGallery(works) {
     for (let i = 0; i < works.length; i++) {
 
@@ -23,8 +21,8 @@ function genererGallery(works) {
         projetElement.appendChild(imageElement);
         projetElement.appendChild(nomElement);
 
-    }
-}
+    };
+};
 
 genererGallery(works);
 
@@ -60,4 +58,26 @@ boutonHotels.addEventListener("click", function () {
     });
     document.querySelector(".gallery").innerHTML = "";
     genererGallery(worksHotels);
+});
+
+console.log(localStorage);
+
+const editionBar = document.querySelector(".editionMode");
+const btnLogin = document.querySelector(".btn-login");
+const btnLogout = document.querySelector(".btn-logout");
+const btnModify = document.querySelector(".portfolio-modify");
+const filters = document.querySelector(".filters")
+
+let tokenOk = window.localStorage.getItem("sophieBluelToken");
+console.log(tokenOk);
+if (tokenOk !== null) {
+    editionBar.style.display = "flex";
+    btnLogin.style.display = "none";
+    btnLogout.style.display = "flex";
+    btnModify.style.display = "flex";
+    filters.style.display = "none";
+};
+
+btnLogout.addEventListener('click', function () {
+    window.localStorage.removeItem("sophieBluelToken");
 });
