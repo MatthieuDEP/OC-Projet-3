@@ -202,23 +202,31 @@ li:hover {
 }
 
 .hidden {
-	display: none;
+	display: none ! important;
 }
 
-.modalCloseButton {
-	border: none;
+.modalTopButtons {
 	display: flex;
-	justify-content: right;
-	margin-left: 37.5rem;
+	justify-content: space-between;
+}
+
+.modalReturnButton, .modalCloseButton {
+	border: none;
 	background-color: white;
 	cursor: pointer;
 }
 
-.modalCloseButton i {
+.modalCloseButton {
+	display: flex;
+	flex-flow: row-reverse;
+	width: 100%;
+}
+
+.modalReturnButton i, .modalCloseButton i {
 	font-size: 1.8rem;
 }
 
-.modalTitle {
+.modalTitleGallery, .modalTitleAddPhoto {
 	font-family: 'Work Sans';
 	font-style: normal;
 	font-weight: 400;
@@ -226,9 +234,8 @@ li:hover {
 }
 
 .modalGallery {
-	overflow: auto;
 	margin: 1rem 4rem 2rem 4rem;
-	padding-bottom: 4.5rem;
+	padding-bottom: 4.5rem; 
 	max-width: 40rem;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -271,6 +278,85 @@ li:hover {
 	border-radius: 50px;
 	margin: 1rem 12rem;
 	cursor: pointer;
+}
+
+.formWrapper {
+	margin: 0 6rem;
+}
+
+.formImage {
+	background-color: #E8F1F6;
+	border-radius: 5px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.formImage i {
+	font-size: 4rem;
+	color: #B9C5CC;
+}
+
+.formImage label {
+	background-color: #CBD6DC;
+	padding: 0.6rem 2rem;
+	border-radius: 50px;
+	color: #306685;
+	margin-top: 0.4rem;
+	margin-bottom: 0.45rem;
+}
+
+.formImage p {
+	color: #444444;
+	font-size: 0.7rem;
+}
+
+.formEntryField {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid #B3B3B3;
+	margin-bottom: 0.8rem;
+}
+
+.formEntryField label {
+	display: flex;
+	justify-content: left;
+	font-family: 'Work Sans';
+	font-size: 0.85rem;
+	font-weight: bold;
+	color: #3D3D3D;
+	margin-top: 1.30rem;
+	margin-bottom: 0.60rem;
+}
+
+.formEntryField input, .formEntryField select {
+	border: none;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	height: 3rem;
+	background-color: white;
+	padding: 0 0.5rem;
+}
+
+.modalPreviewContainer {
+	background-color: #E8F1F6;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modalPreviewContainer img {
+	width: 33%;
+	height: 12rem;
+}
+
+.modalValidateButton {
+	margin: 4rem 0;
+	padding: 0.6rem 4rem;
+	border: none;
+	font-size: 0.9rem;
 }
 
 .filters {
@@ -355,4 +441,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
-
