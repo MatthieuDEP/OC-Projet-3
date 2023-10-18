@@ -28,20 +28,25 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -53,11 +58,13 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
@@ -84,12 +91,13 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -159,21 +167,26 @@ li:hover {
 	display: flex;
 	text-align: center;
 	justify-content: center;
+	margin-bottom: 1rem;
 }
 
 .portfolio-modify {
-	display: flex;
-	margin-left: 2rem;
+	display: none;
+	margin-left: 1rem;
+	margin-bottom: 2rem;
 	font-size: 1rem;
+	align-items: center;
 }
 
 .portfolio-modify i {
 	margin-right: 0.25rem;
 }
 
-.portfolio-modify a {
-	text-decoration: none;
-	color: black;
+.modalOpenButton {
+	background-color: white;
+	border: none;
+	font-size: 1rem;
+	cursor: pointer;
 }
 
 .overlay {
@@ -357,6 +370,7 @@ li:hover {
 	padding: 0.6rem 4rem;
 	border: none;
 	font-size: 0.9rem;
+	background-color: #A7A7A7 ! important;
 }
 
 .filters {

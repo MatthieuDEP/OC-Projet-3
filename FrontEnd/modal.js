@@ -32,7 +32,10 @@ function generateGalleryModal(worksModal) {
         const imageElementModal = document.createElement("img");
         imageElementModal.src = projetModal.imageUrl;
         const deleteWorkButton = document.createElement("button");
+        deleteWorkButton.setAttribute("data-id", projetModal.id)
+        deleteWorkButton.classList.add("trashButton");
         const iconDeleteWorkButton = document.createElement("i");
+        iconDeleteWorkButton.setAttribute("data-id", projetModal.id);
         iconDeleteWorkButton.classList.add("fa-solid", "fa-trash-can");
 
         sectionGalleryModal.appendChild(projetElementModal);
@@ -78,12 +81,36 @@ modalReturnButton.addEventListener("click", returnToGalleryModal);
 
 // SUPPRIMER UN PROJET
 
+const workID = worksModal.id;
+const tokenJeton = window.localStorage.getItem('sophieBluelToken');
+const deleteWorkButton = document.querySelectorAll('.trashButton');
+
+async function deleteWork(workID) {
+
+    const response = await fetch(`http://localhost:5678/api/works/${workID}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${tokenJeton}`
+        }
+    })
+
+    const data = await response.json();
+    console.log(data);
+}
+
+deleteWorkButton.forEach(button => {
+    button.addEventListener("click", function (e) {
+        console.log(e.target.getAttribute("data-id"));
+        deleteWork(e.target.getAttribute("data-id"));
+    })
+})
+
 
 // AJOUTER UN PROJET
 
 const form = document.getElementById("form");
 const fileInput = document.getElementById("fileUpload");
-const tokenJeton = window.localStorage.getItem('sophieBluelToken');
 
 // Prévisualisation de l'image
 fileInput.addEventListener("change", event => {
@@ -114,7 +141,6 @@ async function addWork() {
     const category = document.getElementById("category").value;
     const file = document.getElementById("fileUpload").files[0];
 
-    
     let formData = new FormData();
     formData.append("title", title);
     formData.append("category", category);
