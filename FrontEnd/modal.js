@@ -79,6 +79,7 @@ const returnToGalleryModal = function () {
 
 modalReturnButton.addEventListener("click", returnToGalleryModal);
 
+
 // SUPPRIMER UN PROJET
 
 const workID = worksModal.id;
@@ -135,6 +136,24 @@ fileInput.addEventListener("change", event => {
     };
 });
 
+// Vérification des champs du formulaire d'ajout
+const title = document.getElementById("title");
+const category = document.getElementById("category");
+const file = document.getElementById("fileUpload");
+const validateButton = document.querySelector(".modalValidateButton");
+
+form.addEventListener("change", () => {
+    if (title.value != "" && category.value != "" && file.value != "") {
+        validateButton.classList.remove("modalValidateButton");
+        validateButton.classList.add("modalValidateButtonChecked");
+    }
+    else {
+        validateButton.classList.add("modalValidateButton");
+        validateButton.classList.remove("modalValidateButtonChecked");
+    }
+});
+
+// Fonction pour l'ajout
 async function addWork() {
 
     const title = document.getElementById("title").value;

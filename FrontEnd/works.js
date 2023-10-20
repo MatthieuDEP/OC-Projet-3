@@ -1,5 +1,5 @@
-const reponse = await fetch('http://localhost:5678/api/works');
-const works = await reponse.json();
+const response = await fetch('http://localhost:5678/api/works');
+const works = await response.json();
 
 function genererGallery(works) {
     for (let i = 0; i < works.length; i++) {
@@ -27,14 +27,14 @@ function genererGallery(works) {
 genererGallery(works);
 
 //Gestion des boutons
-const boutonTous = document.querySelector(".btn-tous");
-boutonTous.addEventListener("click", function () {
+const btnTous = document.querySelector(".btn-tous");
+btnTous.addEventListener("click", function () {
     document.querySelector(".gallery").innerHTML = "";
     genererGallery(works);
 });
 
-const boutonObjets = document.querySelector(".btn-objets");
-boutonObjets.addEventListener("click", function () {
+const btnObjets = document.querySelector(".btn-objets");
+btnObjets.addEventListener("click", function () {
     const worksObjets = works.filter(function (work) {
         return work.category.id === 1;
     });
@@ -42,8 +42,8 @@ boutonObjets.addEventListener("click", function () {
     genererGallery(worksObjets);
 });
 
-const boutonAppartements = document.querySelector(".btn-appartements");
-boutonAppartements.addEventListener("click", function () {
+const btnAppartements = document.querySelector(".btn-appartements");
+btnAppartements.addEventListener("click", function () {
     const worksAppartements = works.filter(function (work) {
         return work.category.id === 2;
     });
@@ -51,8 +51,8 @@ boutonAppartements.addEventListener("click", function () {
     genererGallery(worksAppartements);
 });
 
-const boutonHotels = document.querySelector(".btn-hotels");
-boutonHotels.addEventListener("click", function () {
+const btnHotels = document.querySelector(".btn-hotels");
+btnHotels.addEventListener("click", function () {
     const worksHotels = works.filter(function (work) {
         return work.category.id === 3;
     });
@@ -60,8 +60,7 @@ boutonHotels.addEventListener("click", function () {
     genererGallery(worksHotels);
 });
 
-console.log(localStorage);
-
+// Affichage du mode édition
 const editionBar = document.querySelector(".editionMode");
 const btnLogin = document.querySelector(".btn-login");
 const btnLogout = document.querySelector(".btn-logout");
@@ -69,13 +68,13 @@ const btnModify = document.querySelector(".portfolio-modify");
 const filters = document.querySelector(".filters")
 
 let tokenOk = window.localStorage.getItem("sophieBluelToken");
-console.log(tokenOk);
+
 if (tokenOk !== null) {
-    editionBar.style.display = "flex";
-    btnLogin.style.display = "none";
-    btnLogout.style.display = "flex";
-    btnModify.style.display = "flex";
-    filters.style.display = "none";
+    editionBar.classList.remove("hidden");
+    btnLogin.classList.add("hidden");
+    btnLogout.classList.remove("hidden");
+    btnModify.classList.remove("hidden");
+    filters.classList.add("hidden");
 };
 
 btnLogout.addEventListener('click', function () {

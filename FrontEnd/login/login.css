@@ -32,6 +32,7 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
@@ -51,6 +52,10 @@ nav li a {
 
 nav li a:hover {
 	color: #B1663C;
+}
+
+nav li img {
+	width: 1.6rem;
 }
 
 .navLogin {
@@ -100,7 +105,8 @@ input[type="submit"]{
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
+	cursor: pointer;
 }
 
 .logIn a {
@@ -111,6 +117,8 @@ input[type="submit"]{
 
 footer nav ul {
 	display: flex;
-	justify-content: flex-end;
-	margin: 2em
+	justify-content: flex-end;	
+	margin: 2em;
+	position: absolute;
+	bottom: 0;
 }
